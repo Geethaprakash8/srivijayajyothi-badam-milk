@@ -13,7 +13,7 @@ export function Footer() {
           </p>
           <div className="mt-6 flex gap-3">
             {[
-              { Icon: Instagram, href: "#", label: "Instagram" },
+              { Icon: Instagram, href: "https://www.instagram.com/srivijayajyothi_badammilk?igsh=MTl4dW5zN3o2dnJvdA==", label: "Instagram" },
               { Icon: MessageCircle, href: "#", label: "WhatsApp" },
               { Icon: Mail, href: "mailto:hello@royalmilk.in", label: "Email" },
               { Icon: Phone, href: "tel:+910000000000", label: "Phone" },
