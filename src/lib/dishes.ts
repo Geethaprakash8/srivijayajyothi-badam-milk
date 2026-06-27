@@ -1,6 +1,6 @@
-import badam from "@/assets/badam-milk.jpg";
-import pista from "@/assets/pista-milk.jpg";
-import rose from "@/assets/rose-milk.jpg";
+import badam from "../assets/badam-milk.png";
+import pista from "../assets/pista-milk.png";
+import rose from "../assets/rose-milk.png";
 
 export type Dish = {
   id: string;

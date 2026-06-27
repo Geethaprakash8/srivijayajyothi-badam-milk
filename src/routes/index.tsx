@@ -13,7 +13,8 @@ import {
   Timer,
   Truck,
 } from "lucide-react";
-import heroImg from "@/assets/hero-bottles.jpg";
+import heroVideo from "../assets/hero page video.mp4";
+import fallingVideo from "../assets/create_a_creative_and_falling.mp4";
 import { PRODUCTS } from "@/lib/products";
 import { ProductCard } from "@/components/ProductCard";
 
@@ -49,6 +50,25 @@ function Index() {
   );
 }
 
+function HeroVideoBlock({ aspectClass = "aspect-video" }: { aspectClass?: string }) {
+  return (
+    <div className={`relative ${aspectClass} overflow-hidden rounded-[28px] md:rounded-[36px] border border-border bg-cream shadow-[0_30px_60px_-20px_rgba(15,81,50,0.25)]`}>
+      <video
+        src={heroVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep-green/40 to-transparent p-5 text-cream">
+        <p className="text-[11px] uppercase tracking-[0.28em] opacity-90">Today's batch</p>
+        <p className="font-display text-lg">Bottled fresh at sunrise</p>
+      </div>
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -57,48 +77,54 @@ function Hero() {
         className="absolute -top-40 right-[-10%] -z-10 h-[520px] w-[520px] rounded-full opacity-50 blur-3xl"
         style={{ background: "radial-gradient(closest-side, var(--gold-soft), transparent 70%)" }}
       />
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-24 pt-12 md:grid-cols-2 md:gap-8 md:px-8 md:pt-16 lg:gap-16">
+      <div className="mx-auto grid max-w-7xl items-center gap-6 sm:gap-12 px-5 sm:px-6 pb-12 pt-6 sm:pb-24 sm:pt-12 md:grid-cols-2 md:gap-8 md:px-8 md:pt-16 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-white px-4 py-1.5 text-xs font-medium uppercase tracking-[0.22em] text-deep-green">
+          <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-white px-3.5 py-1 text-[11px] sm:text-xs font-medium uppercase tracking-[0.22em] text-deep-green">
             <Sparkles className="h-3.5 w-3.5 text-gold" /> Freshness in every bottle
           </span>
-          <h1 className="mt-6 font-display text-[2.6rem] font-medium leading-[1.05] tracking-tight text-deep-green sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 sm:mt-6 font-display text-2xl sm:text-5xl lg:text-6xl font-medium leading-tight tracking-tight text-deep-green">
             Fresh traditional milk beverages,{" "}
             <span className="gold-text italic">delivered to your door.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+
+          {/* Mobile view video placed right below heading */}
+          <div className="mt-4 sm:mt-6 block md:hidden w-full max-w-md mx-auto">
+            <HeroVideoBlock aspectClass="aspect-video" />
+          </div>
+
+          <p className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-lg leading-relaxed text-muted-foreground">
             Enjoy hand-crafted Badam, Pista and Rose Milk — prepared fresh every morning with
             premium ingredients and traditional recipes passed down for generations.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3">
             <Link
               to="/menu"
-              className="group inline-flex items-center gap-2 rounded-full bg-deep-green px-6 py-3.5 text-sm font-medium text-cream transition-transform hover:scale-[1.03]"
+              className="group inline-flex items-center gap-2 rounded-full bg-deep-green px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-cream transition-transform hover:scale-[1.03]"
             >
               Order Now
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/menu"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-6 py-3.5 text-sm font-medium text-foreground hover:border-gold"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-medium text-foreground hover:border-gold"
             >
               View Menu
             </Link>
           </div>
 
-          <dl className="mt-10 grid max-w-md grid-cols-3 gap-6">
+          <dl className="mt-6 sm:mt-10 grid max-w-md grid-cols-3 gap-3 sm:gap-6">
             {[
               { k: "100%", v: "Pure Milk" },
               { k: "30–45m", v: "Delivery" },
               { k: "4.9★", v: "Rated by 2k+" },
             ].map((s) => (
-              <div key={s.v} className="border-l border-border pl-4 first:border-l-0 first:pl-0">
-                <dt className="font-display text-2xl font-semibold text-deep-green">{s.k}</dt>
-                <dd className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{s.v}</dd>
+              <div key={s.v} className="border-l border-border pl-3 sm:pl-4 first:border-l-0 first:pl-0">
+                <dt className="font-display text-xl sm:text-2xl font-semibold text-deep-green">{s.k}</dt>
+                <dd className="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-muted-foreground">{s.v}</dd>
               </div>
             ))}
           </dl>
@@ -108,49 +134,9 @@ function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative"
+          className="relative mx-auto w-full max-w-lg hidden md:block"
         >
-          <div className="relative aspect-[5/6] overflow-hidden rounded-[36px] border border-border bg-cream shadow-[0_40px_80px_-30px_rgba(15,81,50,0.35)]">
-            <img
-              src={heroImg}
-              alt="Three premium milk bottles — almond, pistachio and rose"
-              width={1600}
-              height={1920}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-deep-green/40 to-transparent p-6 text-cream">
-              <p className="text-[11px] uppercase tracking-[0.28em] opacity-90">Today's batch</p>
-              <p className="font-display text-xl">Bottled fresh at sunrise</p>
-            </div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="glass-card absolute -bottom-6 -left-4 flex items-center gap-3 rounded-2xl p-3 shadow-lg md:-left-8"
-          >
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-deep-green text-cream">
-              <Leaf className="h-4 w-4" />
-            </span>
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Natural</p>
-              <p className="text-sm font-semibold text-deep-green">No preservatives</p>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="glass-card absolute -right-3 top-8 flex items-center gap-3 rounded-2xl p-3 shadow-lg md:-right-6"
-          >
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-gold text-deep-green">
-              <Star className="h-4 w-4 fill-current" />
-            </span>
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Reviews</p>
-              <p className="text-sm font-semibold text-deep-green">Loved by locals</p>
-            </div>
-          </motion.div>
+          <HeroVideoBlock aspectClass="aspect-[4/5]" />
         </motion.div>
       </div>
     </section>
@@ -291,6 +277,16 @@ function Delivery() {
           <h2 className="mt-3 font-display text-4xl tracking-tight sm:text-5xl">
             From our kitchen <span className="gold-text">to your hands.</span>
           </h2>
+        </div>
+        <div className="mt-10 overflow-hidden rounded-[32px] border border-cream/20 bg-black/20 shadow-2xl relative aspect-video max-w-4xl mx-auto">
+          <video
+            src={fallingVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover"
+          />
         </div>
         <ol className="mt-14 grid gap-5 md:grid-cols-5">
           {STEPS.map((s, i) => (

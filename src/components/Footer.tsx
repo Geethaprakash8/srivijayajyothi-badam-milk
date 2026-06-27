@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, MessageCircle, Mail, Phone } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-border bg-gradient-to-b from-cream to-white">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-4 md:px-8">
         <div className="md:col-span-2">
-          <h3 className="font-display text-3xl tracking-tight text-deep-green">Srivijayajyothi Badam Milk</h3>
+          <Logo />
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
             Freshness in every bottle. Traditional Indian milk beverages, hand-prepared daily and
             delivered chilled to your door.

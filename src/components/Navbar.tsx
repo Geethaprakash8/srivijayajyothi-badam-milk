@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Menu, ShoppingBag, User, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
@@ -14,7 +14,7 @@ const LINKS = [
 ] as const;
 
 export function Navbar() {
-  const path = useRouterState({ select: (s: any) => s.location.pathname });
+  const path = useLocation({ select: (l) => l.pathname });
   const { count, setOpen } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [mobile, setMobile] = useState(false);
@@ -73,7 +73,7 @@ export function Navbar() {
           </Link>
           <button
             onClick={() => setOpen(true)}
-            className="relative inline-flex h-9 sm:h-10 items-center gap-1.5 sm:gap-2 rounded-full bg-deep-green px-3.5 sm:px-4 text-xs sm:text-sm font-medium text-cream transition-transform hover:scale-[1.03]"
+            className="relative inline-flex h-9 sm:h-10 items-center gap-1.5 sm:gap-2 rounded-full brand-gradient px-3.5 sm:px-4 text-xs sm:text-sm font-medium text-cream transition-transform hover:scale-[1.03] shadow-sm"
             aria-label="Open cart"
           >
             <ShoppingBag className="h-3.5 w-3.5 sm:h-4 sm:w-4" />

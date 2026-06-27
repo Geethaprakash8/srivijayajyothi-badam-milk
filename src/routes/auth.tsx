@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Lock, Mail, Phone, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
-import heroImg from "@/assets/hero-bottles.jpg";
+import heroImg from "../assets/badam-milk.png";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
