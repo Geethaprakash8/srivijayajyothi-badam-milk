@@ -36,7 +36,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8">
+      <div className="mx-auto flex h-14 sm:h-18 max-w-7xl items-center justify-between gap-2 sm:gap-4 px-4 py-2 sm:px-8 sm:py-3">
         <Logo />
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -73,20 +73,20 @@ export function Navbar() {
           </Link>
           <button
             onClick={() => setOpen(true)}
-            className="relative inline-flex h-10 items-center gap-2 rounded-full bg-deep-green px-4 text-sm font-medium text-cream transition-transform hover:scale-[1.03]"
+            className="relative inline-flex h-9 sm:h-10 items-center gap-1.5 sm:gap-2 rounded-full bg-deep-green px-3.5 sm:px-4 text-xs sm:text-sm font-medium text-cream transition-transform hover:scale-[1.03]"
             aria-label="Open cart"
           >
-            <ShoppingBag className="h-4 w-4" />
+            <ShoppingBag className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             <span className="hidden sm:inline">Cart</span>
             {count > 0 && (
-              <span className="grid h-5 min-w-5 place-items-center rounded-full bg-gold px-1 text-[11px] font-semibold text-deep-green">
+              <span className="grid h-4 min-w-4 sm:h-5 sm:min-w-5 place-items-center rounded-full bg-gold px-1 text-[10px] sm:text-[11px] font-semibold text-deep-green">
                 {count}
               </span>
             )}
           </button>
           <button
             onClick={() => setMobile((v) => !v)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-border bg-white md:hidden"
+            className="grid h-9 w-9 sm:h-10 sm:w-10 place-items-center rounded-full border border-border bg-white md:hidden"
             aria-label="Toggle menu"
           >
             {mobile ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
