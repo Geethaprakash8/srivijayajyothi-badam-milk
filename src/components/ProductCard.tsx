@@ -18,7 +18,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
       className="group relative flex flex-col overflow-hidden rounded-[28px] border border-border bg-white shadow-[0_4px_30px_-12px_rgba(15,81,50,0.08)] transition-all hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgba(15,81,50,0.25)]"
     >
       <div
-        className="relative aspect-[16/10] sm:aspect-[4/5] overflow-hidden"
+        className="relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden flex items-center justify-center p-3 sm:p-4"
         style={{ background: `linear-gradient(160deg, ${product.accent}, var(--cream))` }}
       >
         <span className="absolute left-3 top-3 sm:left-5 sm:top-5 z-10 inline-flex items-center gap-1 rounded-full bg-white/80 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.16em] text-deep-green backdrop-blur">
@@ -30,7 +30,7 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
           width={800}
           height={1000}
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+          className="h-full w-full object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-105 drop-shadow-md"
         />
       </div>
 
